@@ -1,0 +1,84 @@
+@startuml library
+class Person{
+    -name : String
+    -lastName : String
+    -birthDate : int
+    -dni : int
+    -phone : int
+    -email : String
+}
+
+Class User{
+     -person : Person
+     -rol : Rol
+}
+
+Class Rol{
+     -nameRol : String
+}
+
+Class Client{
+     -person : Person
+     -id : String
+     -addres : String
+}
+
+Class Author{
+     -name : String
+     -lastName : String
+     -pseudonym : String
+     -nationality : String
+}
+
+Class Book{
+     -tittle : String
+     -author : Author
+     -category : Category
+     -description : String
+     -stock : int
+     -availability : Availability
+     -stateBook : StateBook
+     -dateOfPublication : date
+     -editorial : String
+     -codeBook : String
+}
+
+Class Category{
+     -category : String
+}
+
+Class Loan{
+     -client : Client
+     -book : Book
+     -dateLoan : date
+     -returnDate : date
+     -observation : StateBook
+}
+
+Class Donation{
+     -donor : Persona
+     -book : Book
+     -state : StateBook
+}
+
+Class Availability{
+     -availability : bool
+}
+
+Class StateBook{
+     -stateBook : String
+}
+
+Person --> User
+Person <-- Client
+User -up-> Rol
+Book --> Author
+Book --> Category
+Book --> Availability
+Book --> StateBook
+Loan --> Book
+Loan --> StateBook
+Donation --> Book
+Donation --> Person
+Donation --> StateBook
+@enduml
