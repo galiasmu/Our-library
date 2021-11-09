@@ -1,5 +1,15 @@
 from django.db import models
 
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
 
 class Category(models.Model):
     category = models.TextField(max_length=255)
@@ -67,4 +77,3 @@ class Loan(models.Model):
     dateLoan = models.DateField('DateLoan', auto_now=False, auto_now_add=True)
     returnDate = models.DateField('ReturnLoan', auto_now=False, auto_now_add=False, null=True, blank=True)
     observation = models.ForeignKey(StateBook, on_delete=models.CASCADE, verbose_name='StateBook')
-
