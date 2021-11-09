@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
@@ -46,6 +47,7 @@ class Person(models.Model):
 class User(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE, verbose_name='Person')
     rol = models.ForeignKey(Rol, on_delete=models.CASCADE, verbose_name='Rol')
+
 
 class Book(models.Model):
     tittle = models.TextField(null=False, max_length=255)
