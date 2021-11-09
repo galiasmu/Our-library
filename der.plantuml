@@ -2,9 +2,9 @@
 class Person{
     -name : String
     -lastName : String
-    -birthDate : int
-    -dni : int
-    -phone : int
+    -birthDate : Date
+    -dni : Long
+    -phone : Int
     -email : String
 }
 
@@ -20,7 +20,7 @@ Class Rol{
 Class Client{
      -person : Person
      -id : String
-     -addres : String
+     -address : String
 }
 
 Class Author{
@@ -40,7 +40,7 @@ Class Book{
      -stateBook : StateBook
      -dateOfPublication : date
      -editorial : String
-     -codeBook : String
+     -codeBook : Long
 }
 
 Class Category{
